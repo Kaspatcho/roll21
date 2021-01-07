@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll 20</title>
+    <link rel="stylesheet" href="/file/style.css/0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+    <script defer src="/file/player.js/0"></script>
+    <script defer src="/file/canvas.js/0"></script>
+    <script defer src="/file/js.js/0"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <ul>
+                <li id="roll">Roll</li>
+                <li id="characters">Characters</li>
+                <li id="images">Maps</li>
+                <li id="config">Settings</li>
+            </ul>
+        </nav>
+        <div class="roll hidden">
+            <input type="text" class="chat">
+        </div>
+    
+
+        <div class="images hidden">
+            <% for(const im of dm){ %>
+            <div class="cont">
+                <img src="/file/<%=im%>/all" alt="<%=im%>">
+            </div>
+            <%}%>
+        </div>
+
+        <div class="config hidden">
+            <button class="config-button">Show Conditions</button>
+        </div>
+
+        <div class="characters">
+            <div class="character-cont">
+                <img src="/file/drizzt.jpg/1" class="character-img">
+                <div class="character-conditions">
+                    <span class="effect">POISONED,</span>
+                    <span class="effect">INVISIBLE.</span>
+                </div>
+                <div class="character-buttons">
+                    <button class="add-effect">+</button>
+                    <button class="delete-character">-</button>
+                </div>
+            </div>
+            <button class="add-character">+</button>
+        </div>
+    </div>
+
+    <div class="change hidden">
+        <div class="change-scroll">
+            <% for(const im of [...pc, ...dm]){ %>
+                <div class="change-cont">
+                    <img src="/file/<%=im%>/all" class="change-img">
+                </div>
+            <%}%>
+        </div>
+        <button class="change-cancel">Cancel</button>
+    </div>
+
+    <div class="effects hidden"></div>
+
+    <div class="set-image hidden">
+        <canvas class="image" width="500" height="500"></canvas>
+    </div>
+
+</body>
+</html>
